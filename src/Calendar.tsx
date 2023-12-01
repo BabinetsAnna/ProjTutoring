@@ -89,16 +89,12 @@ const isCurrentDate = (day: number): boolean => {
   const handleDateClick = (event: React.MouseEvent) => {
     const selectedDay: string | undefined = (event.target as HTMLElement).dataset.day;
     if (selectedDay) {
-      const currentDate = new Date();
-      const currentYear = currentDate.getFullYear();
-      const currentMonth = currentDate.getMonth() + 1;
-      const date = `${currentYear}-${currentMonth.toString().padStart(2, '0')}-${selectedDay.padStart(2, '0')}`;
-  
+      const date = `${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}-${selectedDay.padStart(2, '0')}`;
       setSelectedDate(date);
       console.log(date);
-    
     }
   };
+  
 
   return (
     <div id="calendar-container">
